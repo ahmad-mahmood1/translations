@@ -13,8 +13,10 @@ async function generateTranslatedTokensObject(pathHashArray, targetLocale) {
       const result = await translator.translateText(
         targetValue,
         "en",
-        targetLocale
+        targetLocale,
+        {context:'Platform that handles auctions of variety of items. Different houses put forth their catalog of items on which users can bid. Each catalog has lots in them. Users might need to login or register to gain access to bidding. They can also view how many bids have been placed on a lot or if the catalog is about to close or is accepting bids.'}
       );
+
       _.set(translatedTokensObject, pathArr, result.text);
     });
 
