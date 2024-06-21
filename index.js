@@ -93,7 +93,7 @@ async function readSourceAndGenerateTranslationJSON(
 
     targetLocales.forEach((targetLocale) => {
       readSourceAndGenerateTranslationJSON(
-        `locales/en/common.json`,
+        `source.json`,
         `translated/${targetLocale}.json`,
         targetLocale
       );
