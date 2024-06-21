@@ -80,15 +80,15 @@ async function readSourceAndGenerateTranslationJSON(
 (async () => {
   try {
     const targetLocales = [
-      // "en-GB",
-      // "de",
-      // "es",
-      // "fr",
-      // "ja",
-      // "nl",
-      // "pl",
-      // "pt-PT",
-      // "ru",
+      "en-GB",
+      "de",
+      "es",
+      "fr",
+      "ja",
+      "nl",
+      "pl",
+      "pt-PT",
+      "ru",
       "zh",
       // "zh-tw",
     ];

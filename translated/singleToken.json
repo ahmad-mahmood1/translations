@@ -1,32 +1,42 @@
 {
+  "de": {
+    "artists": "Künstler",
+    "categories": "Kategorien"
+  },
   "en-GB": {
-    "Lots": "Lots"
+    "artists": "Artists",
+    "categories": "Categories"
   },
   "es": {
-    "Lots": "Lotes"
-  },
-  "pl": {
-    "Lots": "Partie"
+    "artists": "Artistas",
+    "categories": "Categorías"
   },
   "fr": {
-    "Lots": "Lots"
+    "artists": "Les artistes",
+    "categories": "Catégories"
   },
   "ja": {
-    "Lots": "ロット"
-  },
-  "de": {
-    "Lots": "Lose"
-  },
-  "pt-PT": {
-    "Lots": "Lotes"
-  },
-  "zh": {
-    "Lots": "拍品"
+    "artists": "アーティスト",
+    "categories": "カテゴリー"
   },
   "nl": {
-    "Lots": "Kavels"
+    "artists": "Kunstenaars",
+    "categories": "Categorieën"
+  },
+  "pl": {
+    "artists": "Artyści",
+    "categories": "Kategorie"
+  },
+  "pt-PT": {
+    "artists": "Artistas",
+    "categories": "Categorias"
   },
   "ru": {
-    "Lots": "Лоты"
+    "artists": "Художники",
+    "categories": "Категории"
+  },
+  "zh": {
+    "artists": "艺术家",
+    "categories": "拍品类别"
   }
 }
