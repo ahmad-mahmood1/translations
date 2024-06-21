@@ -1,9 +1,6 @@
-import * as deepl from "deepl-node";
 import fs from "fs/promises";
 import _ from "lodash";
-
-const authKey = "001eeea5-a19a-4d8d-8c1d-4666fc626d86:fx";
-const translator = new deepl.Translator(authKey);
+import { translator } from "./deepLInstance.js";
 
 async function generateTranslatedTokensObject(pathHashArray, targetLocale) {
   try {
@@ -14,7 +11,10 @@ async function generateTranslatedTokensObject(pathHashArray, targetLocale) {
         targetValue,
         "en",
         targetLocale,
-        {context:'Platform that handles auctions of variety of items. Different houses put forth their catalog of items on which users can bid. Each catalog has lots in them. Users might need to login or register to gain access to bidding. They can also view how many bids have been placed on a lot or if the catalog is about to close or is accepting bids.'}
+        {
+          context:
+            "Different houses put forth their catalog of items on which users can bid. Each catalog has lots in them. Users can view how many bids have been placed on a lot or if the catalog is about to close or is accepting bids. The house can accept bids within a certain time period or can extend the auction duration.",
+        }
       );
 
       _.set(translatedTokensObject, pathArr, result.text);
@@ -80,15 +80,15 @@ async function readSourceAndGenerateTranslationJSON(
 (async () => {
   try {
     const targetLocales = [
-      "en-GB",
-      "de",
-      "es",
-      "fr",
-      "ja",
-      "nl",
-      "pl",
-      "pt-PT",
-      "ru",
+      // "en-GB",
+      // "de",
+      // "es",
+      // "fr",
+      // "ja",
+      // "nl",
+      // "pl",
+      // "pt-PT",
+      // "ru",
       "zh",
       // "zh-tw",
     ];

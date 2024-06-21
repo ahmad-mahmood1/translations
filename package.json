@@ -6,12 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "dev": "node multiToken.js",
+    "translate": "node singleToken.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "deepl-node": "^1.13.0",
+    "dotenv": "^16.4.5",
     "lodash": "^4.17.21"
   }
 }
