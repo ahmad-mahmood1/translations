@@ -5,7 +5,6 @@ import { translator } from "./deepLInstance.js";
 async function generateTranslatedTokensObject(pathHashArray, targetLocale) {
   try {
     const translatedTokensObject = {};
-
     const promiseArray = pathHashArray.map(async ([pathArr, targetValue]) => {
       const result = await translator.translateText(
         targetValue,
@@ -30,6 +29,9 @@ async function generateTranslatedTokensObject(pathHashArray, targetLocale) {
 
 function generateObjectKeyValueHashArray(targetObject) {
   const result = [];
+  const overrideTranslations = {
+    left: "remaining",
+  };
 
   const handleNestedObject = (target, path) => {
     if (typeof target === "object" && target !== null) {
@@ -37,7 +39,9 @@ function generateObjectKeyValueHashArray(targetObject) {
         handleNestedObject(value, path.concat([key]));
       }
     } else if (typeof target === "string") {
-      result.push([path, target]);
+      const targetToken = _.get(overrideTranslations, target, target);
+
+      result.push([path, targetToken]);
     }
   };
 
@@ -46,23 +50,14 @@ function generateObjectKeyValueHashArray(targetObject) {
   return result;
 }
 
-async function readSourceAndGenerateTranslationJSON(
-  filePath,
+async function getTranslationsAndWriteJSON(
+  objectPathHashArray,
   outputPath,
   targetLocale
 ) {
   try {
-    const data = await fs.readFile(filePath, "utf8");
-    const jsonData = JSON.parse(data);
-
-    if (typeof jsonData !== "object" || jsonData === null) {
-      throw new Error("Invalid JSON format in file");
-    }
-
-    const pathHashArray = generateObjectKeyValueHashArray(jsonData);
-
     const translatedTokensObject = await generateTranslatedTokensObject(
-      pathHashArray,
+      objectPathHashArray,
       targetLocale
     );
 
@@ -79,25 +74,33 @@ async function readSourceAndGenerateTranslationJSON(
 
 (async () => {
   try {
-    const targetLocales = [
-      "en-GB",
-      "de",
-      "es",
-      "fr",
-      "ja",
-      "nl",
-      "pl",
-      "pt-PT",
-      "ru",
-      "zh",
-      // "zh-tw",
-    ];
+    const targetLocales = {
+      "en-GB": "en/gb",
+      de: "de",
+      es: "es",
+      fr: "fr",
+      ja: "ja",
+      nl: "nl",
+      pl: "pl",
+      "pt-PT": "pt",
+      ru: "ru",
+      zh: "zh",
+    };
 
-    targetLocales.forEach((targetLocale) => {
-      readSourceAndGenerateTranslationJSON(
-        `source.json`,
-        `translated/${targetLocale}.json`,
-        targetLocale
+    const data = await fs.readFile("source.json", "utf8");
+    const jsonData = JSON.parse(data);
+
+    if (typeof jsonData !== "object" || jsonData === null) {
+      throw new Error("Invalid JSON format in file");
+    }
+
+    const pathHashArray = generateObjectKeyValueHashArray(jsonData);
+
+    Object.entries(targetLocales).forEach(([key, value]) => {
+      getTranslationsAndWriteJSON(
+        pathHashArray,
+        `locales/${value}/common.json`,
+        key
       );
     });
   } catch (error) {
