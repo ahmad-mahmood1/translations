@@ -75,19 +75,21 @@ async function getTranslationsAndWriteJSON(
 (async () => {
   try {
     const targetLocales = {
-      "en-GB": "en/gb",
-      de: "de",
-      es: "es",
-      fr: "fr",
-      ja: "ja",
-      nl: "nl",
+      // "en-GB": "en/gb",
+      // de: "de",
+      // es: "es",
+      // fr: "fr",
+      // ja: "ja",
+      // nl: "nl",
       pl: "pl",
       "pt-PT": "pt",
       ru: "ru",
       zh: "zh",
     };
 
-    const data = await fs.readFile("source.json", "utf8");
+    console.log(await translator.getUsage());
+
+    const data = await fs.readFile("locales/en/common.json", "utf8");
     const jsonData = JSON.parse(data);
 
     if (typeof jsonData !== "object" || jsonData === null) {

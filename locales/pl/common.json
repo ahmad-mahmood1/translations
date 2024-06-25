@@ -3,6 +3,7 @@
   "acceptingBids": "Przyjmowanie ofert",
   "addToCalendar": "Dodaj do kalendarza",
   "approvedToBid": "Zatwierdzone do licytacji",
+  "artists": "Artyści",
   "auction": "Aukcja",
   "auctionClosed": "Aukcja zamknięta",
   "auctionDetails": "Szczegóły aukcji",
@@ -15,6 +16,7 @@
   "bidNow": "Licytuj teraz",
   "bids": "Oferty",
   "catalog": "Katalog",
+  "categories": "Kategorie",
   "clearAll": "Wyczyść wszystko",
   "closingNow": "Zamknięcie teraz",
   "closingSoon": "Wkrótce zamknięcie",
@@ -42,7 +44,7 @@
   "lot.card": {
     "badge": {
       "highBid": "Wysoka oferta",
-      "outBid": "Przebijanie",
+      "outBid": "Przebij",
       "pending": "Oczekujące",
       "won": "Wygrana"
     },
@@ -115,7 +117,7 @@
   "subscriptionAgreement": "Umowa subskrypcji",
   "summary": "Podsumowanie",
   "termsOfUse": "Warunki użytkowania",
-  "timedItemsAreClosing": "Przedmioty z określonym czasem są zamykane.",
+  "timedItemsAreClosing": "Pozycje czasowe są zamykane.",
   "timedItemsBeginClosingIn": "Aukcje czasowe rozpoczynają się w",
   "timedItemsClosingIn": "Przedmioty zamykane w określonym czasie",
   "viewingNotes": "Wyświetlanie uwag",
